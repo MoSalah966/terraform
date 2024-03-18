@@ -1,0 +1,28 @@
+variables types
+input variables
+- var.<name>
+---
+variable "instance_type" {
+    description = "ec2 instance type"
+    type        = string
+    default     = "t2.micro"
+}
+---
+local variables
+- local.<name>
+---
+locals {
+    service_name = "My Service"
+    owner        = "DevOps Directive"
+}
+---
+output variables 
+---
+output "instance_ip_addr" {
+    value = aws_instance.instance.public_ip
+}
+---
+https://www.w3schools.io/terraform-variables/
+terraform apply -var-file=<pathtotfvarsfile>
+or 
+terraform apply -var="db_user=myuser" -var="db_pass=paswrd"
